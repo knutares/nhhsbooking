@@ -8,27 +8,27 @@ def connect_db():
 
 @app.route('/')
 def index():
-    return render_template('registrering.html')
+    return render_template('startside.html')
 
-@app.route('/medlemsliste')
+@app.route('/bekreftelse')
+def index():
+    return render_template('mb_bekreftelsesside.html')
+
+@app.route('/skjema')
+def index():
+    return render_template('mb_utfyllingskjema.html')
+
+@app.route('/moterombooking')
+def index():
+    return render_template('moterombooking.html')
+
+@app.route('/velgtid')
+def index():
+    return render_template('velgtidrom.html')
+
+@app.route('/logginn')
 def medlemsliste():
-    db = connect_db()
-    cur = db.execute("select fornavn, etternavn from medlemmer")
-    entries = [dict(name=row[0], etternavn=row[1]) for row in cur.fetchall()]
-    print(entries)
-    db.close
-    return render_template('medlemsliste.html', entries=entries)
-
-@app.route('/leggtilbruker')
-def leggtilbruker():
-    fornavn = request.args.get('fornavn')
-    etternavn = request.args.get('etternavn')
-    db = connect_db()
-    sql = "INSERT INTO medlemmer (fornavn, etternavn) values (?,?)"
-    db.execute(sql, [fornavn, etternavn])
-    db.commit()
-    db.close()
-    return render_template('profil.html', html_page_fornavn=fornavn, html_page_etternavn=etternavn)
+    return render_template('loginn.html')
 
 if __name__ == '__main__':
     app.run()

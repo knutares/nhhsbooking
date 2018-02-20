@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Booking NHHS</title>
+<script src="js.js"></script>
+</head>
+<body>
+  <h1> Booking av rom og ressurser i NHHS </h1>
+  <!--sjekk hva action skal være-->
+  <form action="skjema.html" method="POST">
+    Guppe du komme fra:<br>
+    <input type="text" name="gruppe"><br>
+    Type gruppe:<br>
+    <input type="radio" name="typeGruppe" value="underutvalg">Underutvalg<br>
+    <input type="radio" name="typeGruppe" value="interressegruppe">Interressegruppe<br>
+    Navn på den som er ansvarlig for booking:<br>
+    <input type="text" name="navn"><br>
+    Studentnummer på den som er ansvarlig for booking:<br>
+    <input type="text" name="studentnummer"><br>
+    Mail på den som er ansvarlig for booking:<br>
+     <!-- forslag på regx .+@+.+[.]+.-->
+    <input type="text" name="mail"><br>
+    Telefonnummer på den som er ansvarlig for booking:<br>
+    <input type="tel" name="tlf"><br>
+    Navn på kontaktperson:<br>
+    <input type="text" name="navn"><br>
+    Studentnummer på kontaktperson:<br>
+    <input type="text" name="studentnummer"><br>
+    Mail på kontaktperson:<br>
+    <input type="text" name="mail"><br>
+    Telefonnummer på kontaktperson:<br>
+    <input type="tel" name="tlf"><br>
+    Start tid:<br>
+    <input type="datetime-local" name="start"><br>
+    Slutt tid:<br>
+    <input type="datetime-local" name="slutt"><br>
+    Hvilke rom skal bookes:<br>
+    <input type="checkbox" name="rom" value="campus" onclick="showHideCampus()">Campus<br>
+<!-- en div tag som kapsler inn boksen som kun er relevant om  ja krysses av, vises ved js funksjon showHide-->
+    <div id="campus" style="display:none">
+      Ønsker dere hjelp fra Teknisk Gruppe (TG) i forbindelse med lyd og lys til Show?<br>
+      <input type="radio" name="TG" value="ja" onclick="showHideCampusTG()">ja<br>
+<!-- en div tag som kapsler inn boksen som kun er relevant om  ja krysses av, vises ved js funksjon showHide-->
+        <div id="jaTG" style="display:none">
+        Beskrivelse av lyd og lysbehov<br>
+          <textarea name="textarea" style="width:250px;height:150px;"></textarea><br>
+        </div>
+      <input type="radio" name="TG" value="nei">nei<br>
+      Ønsker dere KKU?<br>
+      <input
+    </div>
+    <input type="checkbox" name="rom" value="aulaen">Aulaen<br>
+    <input type="checkbox" name="rom" value="fuken">Fuken<br>
+    <input type="checkbox" name="rom" value="klubben">Klubben<br>
+    <input type="checkbox" name="rom" value="studentkantinen">Studentkantinen<br>
+    <input type="checkbox" name="rom" value="personalkantinen">Personalkantinen<br>
+    Andre ressurser:
+    <input type="radio" name="ressurser" value="foto">Ønsker dere at Foto NHHS stiller på arrangementet<br>
+    <input type="radio" name="ressurser" value="lerret">Leie lerret<br>
+    <input type="radio" name="ressurser" value="prosjektor">Leie prosjektor<br>
+    <input type="radio" name="ressurser" value="partyrack">Leie partyrack<br>
+  </form>
+</body
